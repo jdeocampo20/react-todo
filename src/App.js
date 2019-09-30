@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
-
 import TodoComponent from './Components/TodoComponent';
+import './App.css';
 
 function App() {
   return (
