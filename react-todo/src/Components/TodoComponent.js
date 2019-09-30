@@ -6,8 +6,9 @@ import TodoForm from './TodoForm';
 const TodoComponent = () => {
     const [todoList, setTodoList] = useState([]);
 
-    const addTodo = (todo) => {
-        setTodoList([...todoList, 
+    const addTodo = todo => {
+        setTodoList([
+            ...todoList,
             {
                 id: todoList.length,
                 value: todo,
@@ -16,18 +17,30 @@ const TodoComponent = () => {
         ]);
     };
 
-    const completeTask = (taskId) => {
+    const toggleTask = taskId => {
         todoList[taskId].complete = !todoList[taskId].complete;
-        setTodoList([ ...todoList ]);
+        setTodoList([...todoList]);
+    };
+
+    const deleteTask = taskId => {
+        setTodoList(
+            todoList.filter(t => {
+                return t.id !== taskId;
+            })
+        );
     };
 
     return (
         <div>
             <div>TODO app</div>
-            <TodoForm onSubmit={addTodo}/>
-            <TodoList todoList={todoList} completeTask={completeTask}/>
+            <TodoForm onSubmit={addTodo} />
+            <TodoList
+                todoList={todoList}
+                toggleTask={toggleTask}
+                deleteTask={deleteTask}
+            />
         </div>
     );
-}
+};
 
 export default TodoComponent;
