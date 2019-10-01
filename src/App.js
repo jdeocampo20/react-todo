@@ -1,11 +1,15 @@
 import React from 'react';
-import TodoComponent from './Components/TodoComponent';
-import './App.css';
+import './App.scss';
+
+import TodoContainer from './Components/TodoContainer/TodoContainer';
+import Navbar from './Components/Navbar/Navbar';
+
 
 function App() {
   return (
     <div className="App">
-      <TodoComponent />
+      <Navbar/>
+      <TodoContainer />
     </div>
   );
 }

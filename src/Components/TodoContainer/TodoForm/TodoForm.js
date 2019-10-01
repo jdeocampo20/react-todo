@@ -1,4 +1,9 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+
+import './TodoForm.scss';
 
 class TodoForm extends React.Component {
     state = { todo: '' };
@@ -10,16 +15,19 @@ class TodoForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type="text"
-                    name="todo"
+            <form onSubmit={this.handleSubmit} className='todo-form'>
+                <TextField
+                    type='text'
+                    variant='outlined'
+                    className='add-todo-field'
                     value={this.state.todo}
                     onChange={event =>
                         this.setState({ todo: event.target.value })
                     }
                 />
-                <button>Add item</button>
+                <Button variant='contained' color='secondary'>
+                    <Icon>add</Icon>
+                </Button>
             </form>
         );
     }

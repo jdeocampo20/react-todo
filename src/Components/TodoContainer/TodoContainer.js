@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Container from '@material-ui/core/Container';
 
+import './TodoContainer.scss'
 import TodoList from './TodoList';
-import TodoForm from './TodoForm';
+import TodoForm from './TodoForm/TodoForm';
 
-const TodoComponent = () => {
+const TodoContainer = () => {
     const [todoList, setTodoList] = useState([]);
 
     const addTodo = todo => {
@@ -31,16 +33,16 @@ const TodoComponent = () => {
     };
 
     return (
-        <div>
-            <div>TODO app</div>
+        <Container maxWidth='md' className='todo-container'>
             <TodoForm onSubmit={addTodo} />
             <TodoList
+                className='todo-list'
                 todoList={todoList}
                 toggleTask={toggleTask}
                 deleteTask={deleteTask}
             />
-        </div>
+        </Container>
     );
 };
 
-export default TodoComponent;
+export default TodoContainer;
