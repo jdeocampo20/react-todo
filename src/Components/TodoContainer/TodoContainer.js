@@ -22,7 +22,8 @@ const TodoContainer = () => {
     };
 
     const toggleTask = taskId => {
-        todoList[taskId].complete = !todoList[taskId].complete;
+        const taskIndex = todoList.findIndex(t => t.id === taskId);
+        todoList[taskIndex].complete = !todoList[taskIndex].complete;
         setTodoList([...todoList]);
     };
 
