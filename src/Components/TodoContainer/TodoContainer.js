@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 
 import './TodoContainer.scss'
-import TodoList from './TodoList';
+import TodoList from './TodoList/TodoList';
 import TodoForm from './TodoForm/TodoForm';
 
 const TodoContainer = () => {
