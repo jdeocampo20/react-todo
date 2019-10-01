@@ -6,17 +6,19 @@ import TodoList from './TodoList/TodoList';
 import TodoForm from './TodoForm/TodoForm';
 
 const TodoContainer = () => {
+    const [id, setId] = useState(1);
     const [todoList, setTodoList] = useState([]);
 
     const addTodo = todo => {
         setTodoList([
             ...todoList,
             {
-                id: todoList.length,
+                id: id,
                 value: todo,
                 complete: false
             }
         ]);
+        setId(id + 1);
     };
 
     const toggleTask = taskId => {
