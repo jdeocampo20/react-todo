@@ -25,7 +25,7 @@ class TodoForm extends React.Component {
                         this.setState({ todo: event.target.value })
                     }
                 />
-                <Button variant='contained' color='secondary'>
+                <Button type='submit' variant='contained' color='secondary'>
                     <Icon>add</Icon>
                 </Button>
             </form>
