@@ -1,6 +1,11 @@
-.todo-item {
+.todo-left{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.todo-item {
+    @extend .todo-left;
     justify-content: space-between;
+    width: 100%;
 }

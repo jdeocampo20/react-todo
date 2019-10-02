@@ -1,10 +1,11 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
 
 import './TodoList.scss';
 import TodoItem from '../TodoItem/TodoItem';
 
 const TodoList = props => (
-    <div className='todo-list'>
+    <Container maxWidth='sm' className='todo-list'>
         {props.todoList.map(todo => (
             <TodoItem
                 key={todo.id}
@@ -13,7 +14,7 @@ const TodoList = props => (
                 deleteTask={props.deleteTask}
             />
         ))}
-    </div>
+    </Container>
 );
 
 export default TodoList;
