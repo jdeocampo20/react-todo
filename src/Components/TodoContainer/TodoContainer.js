@@ -36,6 +36,14 @@ const TodoContainer = () => {
         );
     };
 
+    const updateTaskDetails = updatedTask => {
+        const taskIndex = todoList.findIndex(t => t.id === updatedTask.taskId);
+        todoList[taskIndex].value = updatedTask.taskName;
+        todoList[taskIndex].dueDate = updatedTask.dueDate;
+
+        setTodoList([...todoList]);
+    }
+
     return (
         <Container maxWidth='md' className='todo-container'>
             <TodoForm onSubmit={addTodo} />
@@ -44,6 +52,7 @@ const TodoContainer = () => {
                 todoList={todoList}
                 toggleTask={toggleTask}
                 deleteTask={deleteTask}
+                updateTaskDetails={updateTaskDetails}
             />
         </Container>
     );

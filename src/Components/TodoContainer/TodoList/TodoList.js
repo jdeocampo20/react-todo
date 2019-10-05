@@ -12,6 +12,7 @@ const TodoList = props => (
                 {...todo}
                 toggleTask={props.toggleTask}
                 deleteTask={props.deleteTask}
+                updateTaskDetails={props.updateTaskDetails}
             />
         ))}
     </Container>

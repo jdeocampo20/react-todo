@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
-import moment from 'moment'
+import moment from 'moment';
 
 import './TodoItem.scss';
+import TodoFormDialog from '../TodoFormDialog';
 
 const TodoItem = props => {
     const toggleTask = () => {
@@ -16,13 +17,29 @@ const TodoItem = props => {
         props.deleteTask(props.id);
     };
 
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const updateTaskDetails = updatedTask => {
+        updatedTask.taskId = props.id;
+        props.updateTaskDetails(updatedTask);
+        setOpen(false);
+    }
+
     return (
         <div className='todo-item'>
             <div className='todo-details'>
                 <Checkbox
                     type='checkbox'
                     onClick={toggleTask}
-                    value={props}
+                    value={props.complete}
                 ></Checkbox>
                 <Typography
                     variant='h5'
@@ -34,6 +51,7 @@ const TodoItem = props => {
             </div>
             <div className='todo-details'>
                 <Typography
+                    onClick={handleClickOpen}
                     variant='subtitle2'
                     display='inline'
                     style={{ textDecoration: props.complete && 'line-through' }}
@@ -43,11 +61,17 @@ const TodoItem = props => {
                 <IconButton
                     aria-label='delete'
                     onClick={deleteTask}
-                    value={props}
                 >
                     <Icon>delete</Icon>
                 </IconButton>
             </div>
+            <TodoFormDialog 
+                open={open} 
+                onClose={handleClose}
+                taskName={props.value}
+                dueDate={props.dueDate}
+                updateTaskDetails={updateTaskDetails}
+            />
         </div>
     );
 };
