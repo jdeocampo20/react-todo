@@ -3,6 +3,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
+import moment from 'moment'
 
 import './TodoItem.scss';
 
@@ -17,7 +18,7 @@ const TodoItem = props => {
 
     return (
         <div className='todo-item'>
-            <div className='todo-left'>
+            <div className='todo-details'>
                 <Checkbox
                     type='checkbox'
                     onClick={toggleTask}
@@ -31,9 +32,22 @@ const TodoItem = props => {
                     {props.value}
                 </Typography>
             </div>
-            <IconButton aria-label='delete' onClick={deleteTask} value={props}>
-                <Icon>delete</Icon>
-            </IconButton>
+            <div className='todo-details'>
+                <Typography
+                    variant='subtitle2'
+                    display='inline'
+                    style={{ textDecoration: props.complete && 'line-through' }}
+                >
+                    {moment(props.dueDate).format('ddd MMM DD')}
+                </Typography>
+                <IconButton
+                    aria-label='delete'
+                    onClick={deleteTask}
+                    value={props}
+                >
+                    <Icon>delete</Icon>
+                </IconButton>
+            </div>
         </div>
     );
 };

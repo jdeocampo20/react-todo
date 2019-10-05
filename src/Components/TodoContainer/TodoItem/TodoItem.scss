@@ -1,11 +1,11 @@
-.todo-left{
+.todo-details{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .todo-item {
-    @extend .todo-left;
+    @extend .todo-details;
     justify-content: space-between;
     width: 100%;
 }

@@ -14,8 +14,9 @@ const TodoContainer = () => {
             ...todoList,
             {
                 id: id,
-                value: todo,
-                complete: false
+                value: todo.taskName,
+                complete: false,
+                dueDate: todo.dueDate
             }
         ]);
         setId(id + 1);

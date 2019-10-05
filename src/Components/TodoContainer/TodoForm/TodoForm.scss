@@ -5,6 +5,17 @@
     justify-content: center;
 
     .add-todo-field {
+        display: flex;
         padding-right: 5px;
+        flex: 1;
+    }
+
+    .task-name-field {
+        flex-grow: 1;
+    }
+
+    .due-date-field {
+        flex-shrink: 0;
+        width: 75px;
     }
 }
