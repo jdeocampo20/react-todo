@@ -1,11 +1,15 @@
-.todo-details{
+.flex-row-center {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
 }
 
-.todo-item {
-    @extend .todo-details;
+.flex-row-space-between {
+    @extend .flex-row-center;
     justify-content: space-between;
-    width: 100%;
+}
+
+.editable-row {
+    cursor: pointer;
 }
